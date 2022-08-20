@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+
+  postgres:
+    image: postgres
+    container_name: sensors-db
+    environment:
+      POSTGRES_DB: "sensors"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5432:5432"
+
+  sensor-project:
+    image: sensor-project
+    build:
+      context: .
+    container_name: sensor-project
+    restart: on-failure
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
