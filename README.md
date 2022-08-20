@@ -1,4 +1,3 @@
-Learning DOCKER using the example of a SPRING-BOOT application
 
 ### MONITOR SENSORS PROJECT
 
